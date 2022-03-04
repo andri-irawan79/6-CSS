@@ -1,0 +1,224 @@
+body {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Bagian header */
+header {
+    background-color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+header img {
+    padding: 15px 20px;
+    width: 10rem;
+}
+
+nav ul {
+    display: flex;
+    margin-right: 1rem;
+}
+
+nav ul li {
+    list-style: none;
+    margin: 5px 20px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: black;
+    font-size:medium;
+}
+
+ul li a:hover {
+    font-weight: bold;
+    color: rgb(94, 94, 238);
+}
+
+/* Menghilangkan checkbox */
+#burger-cek, figure {
+    display: none;
+}
+
+
+/* Bagian konten utama */
+main {
+    background-image: url('/img/sample-pattern.png');
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+section {
+    background-color: #fff;
+    width: 60%;
+    box-sizing: border-box;
+    margin-bottom: 3px;
+    padding: 10px 30px;
+    
+}
+
+section h4 {
+    color:rgb(94, 94, 238);
+}
+
+section p {
+    text-align: justify;
+}
+
+/* Bagian footer */
+footer {
+    background-color: black;
+    color: #fff;
+    font-size: 0.84rem;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;   
+}
+
+
+
+
+/* Responsif */
+@media screen and (max-width: 465px) {
+    header img {
+        width: 120px;
+        padding: 15px 10px;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        z-index: -1;
+        width: 540px;
+        height: 540px;
+        overflow: hidden;
+    }
+
+    nav ul{
+        display: none;
+    }
+
+
+    section {
+        width: 90%;
+    }
+
+    section h4 {
+        text-align: center;
+    }
+
+
+    /* burger icon */
+    header .burger-icon {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: -1.3rem;
+        z-index: 5;
+    }
+
+    .burger {
+        border: 1.6px solid rgb(12, 12, 12);
+        background-color: rgb(12, 12, 12);
+        width: 23px;
+        margin: 2.1px;
+        border-radius: 5px;
+    }
+
+    #burger-cek {
+        display: block;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        right: 0.95rem;
+        opacity: 0;
+        z-index: 7;
+        cursor: pointer;
+    }
+
+    /* Sebelum dicentang */
+    .burger-satu {
+        transform-origin: 0 0;
+        transition: 0.5s;
+    }
+
+    .burger-dua {
+        transition: 0.5s;
+    }
+
+    .burger-tiga {
+        transform-origin: 0 0;
+        transition: 0.5s;
+    }
+    
+    /* Tampilan burger icon setelah di centang */
+    #burger-cek:checked ~ .burger-icon .burger {
+        border: 1.6px solid white;
+        background-color: white;
+    }
+
+    #burger-cek:checked ~ nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: block;
+        z-index: 4;
+    }
+
+    #burger-cek:checked ~ nav ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        width: 540px;
+        height: 540px;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        transform: translate(50%, -30%);
+        transition: all 1s ease-in-out;
+    }
+
+    #burger-cek:checked ~ nav ul li {
+        margin: 1rem;
+        position: relative;
+        left: -4.7rem;
+        bottom: -3rem;
+    }
+
+
+    #burger-cek:checked ~ nav ul li a {
+        font-size: 1.1rem;
+        color: #fff;
+    }
+
+    /* burger icon */
+    #burger-cek:checked ~ .burger-icon .burger-satu {
+        transform: translate(4px,-2px) rotate(45deg);
+        transition: 0.5s;
+    }
+
+    #burger-cek:checked ~ .burger-icon .burger-dua {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    #burger-cek:checked ~ .burger-icon .burger-tiga {
+        transform: translate(1px,2px) rotate(-45deg) ;
+        transition: 0.5s;
+
+    }
+}
